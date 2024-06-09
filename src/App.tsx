@@ -1,10 +1,14 @@
-import Menu from "./components/Menu"
-
-function App() {
-
+import { Home } from "./Pages/Home";
+import { GlobalStyle } from "./styles/global";
+import { ThemeProvider } from "styled-components";
+import { themeDefault } from "./styles/themes/themeDefault";
+export const App = () => {
   return (
-    <Menu/>
-  )
-}
-
-export default App
+    <>
+      <ThemeProvider theme={themeDefault}>
+        <GlobalStyle />
+        <Home />
+      </ThemeProvider>
+    </>
+  );
+};
