@@ -36,8 +36,12 @@ function Clima({ cidade }: IClima) {
         throw new Error("Erro ao pesquisar a sua cidade");
       }
     } catch (erro) {
-      setTemperatura(null);
-      setErro(erro.message);
+      if (erro instanceof Error) {
+        setTemperatura(null);
+        setErro(erro.message);
+      } else {
+        console.error("Erro não esperado:", erro);
+      }
     }
   };
   return (
